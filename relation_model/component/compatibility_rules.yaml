@@ -1,0 +1,5 @@
+FitnessCriteriaUser:
+  Generator: [FitnessCriteriaGenerator]
+
+CategoryCriteriaUser:
+  Generator: [CategoryCriteriaGenerator]
