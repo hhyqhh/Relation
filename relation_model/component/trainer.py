@@ -18,6 +18,7 @@ class Trainer:
         
         self.label_encoder = preprocessing.LabelEncoder()
         self.model_history = []
+
         
 
     def do(self,Xs,ys):
@@ -37,9 +38,15 @@ class Trainer:
         model.fit(Xs,ys)
         return model
 
-    def predict(self, Xs,transform_back=True):
+    def predict(self, Xs,transform_back=True,return_prob=False):
         logger.debug('Trainer.predict')
-        return self._predict(Xs,transform_back)
+        model = self.model_history[-1]
+
+        if return_prob and hasattr(model,'predict_proba'):
+            ys_pred = model.predict_proba(Xs)
+            return ys_pred
+        else:
+            return self._predict(Xs,transform_back)
 
     def _predict(self, Xs,transform_back):
         model = self.model_history[-1]

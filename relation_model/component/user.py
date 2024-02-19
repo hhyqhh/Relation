@@ -63,6 +63,76 @@ class User:
         
 
 
+class LeagueScoringUser(User):
+    def __init__(self, generator=None, trainer=None):
+        super().__init__(generator, trainer)
+
+
+    def probability_check(self, predectvalue, relation_index):
+        predectvalue = predectvalue.tolist()
+        predectvalue_v = np.zeros(len(predectvalue))
+        lab_set = [-1, 1]
+        for relationind in relation_index:
+            p1 = predectvalue[relationind[0]]
+            p2 = predectvalue[relationind[1]]
+
+            if p1.index(max(p1)) != p2.index(max(p2)):
+                predectvalue_v[relationind[0]] = lab_set[p1.index(max(p1))]
+                predectvalue_v[relationind[1]] = lab_set[p2.index(max(p2))]
+            else:
+                if abs(p1[0] - p1[1]) > abs(p2[0] - p2[1]):
+                    predectvalue_v[relationind[0]] = lab_set[p1.index(max(p1))]
+                    predectvalue_v[relationind[1]] = lab_set[p1.index(min(p1))]  # 切记这里是min
+                else:
+                    predectvalue_v[relationind[0]] = lab_set[p2.index(min(p2))]
+                    predectvalue_v[relationind[1]] = lab_set[p2.index(max(p2))]
+
+        return predectvalue_v
+
+    def _do(self,Us,p_check=True):
+
+        # shape of Us
+        u_num, u_dim = Us.shape
+
+        # 记录 [x1,x2],[x2,x1] 对应的位置关系 用于校验概率
+        relation_index = [[ind1 * u_num + ind2, ind2 * u_num + ind1] for ind1 in list(range(u_num)) for ind2 in list(range(u_num)) if
+                          ind1 != ind2]
+        
+        # 记录 每一组关系对中包含的元素
+        raw_pos_index = [[x1, x2] for x1 in list(range(u_num)) for x2 in list(range(u_num))]
+
+        Rs = np.array([np.r_[u1, u2] for u1 in Us for u2 in Us])
+        if p_check:
+            lps = self.trainer.predict(Rs,return_prob=True)
+            ls = self.probability_check(lps,relation_index)
+        else:
+            ls = self.trainer.predict(Rs,return_prob=False)
+
+
+        s = set()
+        scorevalue = np.zeros(u_num)
+
+        for r_index in relation_index:
+            if r_index[0] not in s:
+                s.add(r_index[0])
+                s.add(r_index[1])
+
+                t1 = ls[r_index[0]]
+
+                indindex = raw_pos_index[r_index[0]]
+                if t1 == 1:
+                    scorevalue[indindex[0]] += 1
+                else:
+                    scorevalue[indindex[1]] += 1
+            else:
+                continue
+        return scorevalue
+        # best_index = np.argmax(scorevalue)
+        # return best_index
+
+
+
+
 class FitnessCriteriaUser(User):
     def __init__(self, generator=None, trainer=None):
         super().__init__(generator, trainer)    

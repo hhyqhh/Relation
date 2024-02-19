@@ -3,3 +3,6 @@ FitnessCriteriaUser:
 
 CategoryCriteriaUser:
   Generator: [CategoryCriteriaGenerator]
+
+LeagueScoringUser:
+  Generator: [FitnessCriteriaGenerator]

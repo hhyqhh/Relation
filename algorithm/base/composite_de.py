@@ -32,6 +32,7 @@ class CompositeDE(GeneticAlgorithm):
     def _advance(self, infills=None, **kwargs):
         assert infills is not None, "This algorithms uses the AskAndTell interface thus infills must to be provided."
 
+
         infills = self.preselection_by_real(infills)
         I = range(self.n_offsprings)
         infills.set('index', I)
@@ -57,12 +58,12 @@ class CompositeDE(GeneticAlgorithm):
 
 if __name__ == '__main__':
 
-    problem = LZG01(n_var=20)
+    problem = LZG02(n_var=10)
     algorithm = CompositeDE(pop_size=50)
     from pymoo.optimize import minimize
     res = minimize(problem,
                    algorithm,
-                   ('n_gen', 1000),
+                   ('n_evals', 15000),
                    seed=1,
                    verbose=True,output=SingleObjectiveOutput(),)
     print("hash", res.F.sum())
