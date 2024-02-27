@@ -89,7 +89,7 @@ Our observations indicate that updating solely the most favorable solution leads
 ---
 
 ## Basic Algorithm
-作为必要的基础算法，本仓库还包含了一些基础的算法实现。
+This repository also contains some basic algorithm implementations. 
 
 ### EDA/LS
 
