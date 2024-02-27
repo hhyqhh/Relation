@@ -118,7 +118,7 @@ class DRSO(GeneticAlgorithm):
         selected = ys_pre2.flatten() > 0
         selected_decs = copy.deepcopy(Xs)[selected, :]
 
-        if selected_decs.shape[0] > 25:
+        if selected_decs.shape[0] > int(self.pop_size / 2):
             r_index = np.random.permutation(selected_decs.shape[0])
             selected_decs = selected_decs[r_index[:int(self.pop_size / 2)], :]
 

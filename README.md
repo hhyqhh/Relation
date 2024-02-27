@@ -18,7 +18,30 @@ Ths repository has collected some of our research work and code implementations 
 | DRSO      |   ✅    |        |
 
 
+---
 
+## Usage
+
+The Python version algorithm is fully compatible with the pymoo framework.
+
+```python
+from pymoo.optimize import minimize
+from problem.single.LZG import LZG01, LZG02, LZG03, LZG04
+from loguru import logger
+from algorithm.saea.drso import DRSO
+
+
+logger.remove()
+problem = LZG01(n_var=20)
+algorithm = DRSO()
+res = minimize(problem,
+                algorithm,
+                ('n_evals', 500),
+                verbose=True)
+
+```
+
+## Relaton Model assi
 ### RCPS 
 
 In this work, we propose using relation models for pre-selection operations to accelerate the convergence speed of evolutionary algorithms. ([code](https://github.com/hhyqhh/Relation/blob/main/algorithm/saea/rcps.py), [paper](https://ieeexplore.ieee.org/document/9060983))
@@ -63,9 +86,19 @@ Our observations indicate that updating solely the most favorable solution leads
 
 
 
-
-
-
-
 ---
 
+## Basic Algorithm
+作为必要的基础算法，本仓库还包含了一些基础的算法实现。
+
+### EDA/LS
+
+> Zhou A, Sun J, Zhang Q. An estimation of distribution algorithm with cheap and expensive local search methods[J]. IEEE Transactions on Evolutionary Computation, 2015, 19(6): 807-822.
+
+[code](https://github.com/hhyqhh/Relation/blob/main/algorithm/base/edals.py)
+
+### CoDE
+
+> Wang Y, Cai Z, Zhang Q. Differential evolution with composite trial vector generation strategies and control parameters[J]. IEEE transactions on evolutionary computation, 2011, 15(1): 55-66.
+
+[code](https://github.com/hhyqhh/Relation/blob/main/algorithm/base/composite_de.py)
