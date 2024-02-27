@@ -55,7 +55,7 @@ res = minimize(problem,
 
 ```
 
-## Relaton Model assi
+## Relaton Model assisted Evolutionary Algorithm
 ### RCPS 
 
 In this work, we propose using relation models for pre-selection operations to accelerate the convergence speed of evolutionary algorithms. ([code](https://github.com/hhyqhh/Relation/blob/main/algorithm/saea/rcps.py), [paper](https://ieeexplore.ieee.org/document/9060983))
