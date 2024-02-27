@@ -9,6 +9,8 @@ Ths repository has collected some of our research work and code implementations 
 
 
 ## Implementation
+
+### Relation Model assisted Evolutionary Algorithm
 | algorithm | python | matlab |
 | --------- | :----: | :----: |
 | RCPS      |   ✅    |        |
@@ -18,6 +20,9 @@ Ths repository has collected some of our research work and code implementations 
 | DRSO      |   ✅    |        |
 
 
+### Basic Algorithm
+| EDA/LS    |   ✅    |       |
+| CoDE      |   ✅    |       |
 ---
 
 ## Usage
