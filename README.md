@@ -31,6 +31,13 @@ Ths repository has collected some of our research work and code implementations 
 
 The Python version algorithm is fully compatible with the pymoo framework.
 
+First, install the package by running the following command in the root directory of the repository:
+```bash
+pip install -r requirements.txt
+python setup.py develop
+```
+
+An example of using the DRSO algorithm to solve the LZG01 problem is shown below:
 ```python
 from pymoo.optimize import minimize
 from problem.single.LZG import LZG01, LZG02, LZG03, LZG04
