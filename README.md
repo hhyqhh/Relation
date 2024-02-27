@@ -21,6 +21,8 @@ Ths repository has collected some of our research work and code implementations 
 
 
 ### Basic Algorithm
+| algorithm | python | matlab |
+| --------- | :----: | :----: |
 | EDA/LS    |   ✅    |       |
 | CoDE      |   ✅    |       |
 ---
