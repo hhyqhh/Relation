@@ -27,6 +27,11 @@ Ths repository has collected some of our research work and code implementations 
 | CoDE      |   ✅    |       |
 ---
 
+### Other expensive optimization (Black-box optimization) related work 
+| algorithm | python | matlab |
+| --------- | :----: | :----: |
+| UEDA  |    ✅    |     |
+
 ## Usage
 
 The Python version algorithm is fully compatible with the pymoo framework.
@@ -98,6 +103,22 @@ Our observations indicate that updating solely the most favorable solution leads
 ![Image description](./img/DRSO_1.png)
 
 
+
+
+---
+
+## Expensive Optimization Related Work
+
+Some of my other research works on **expensive optimization** (also know as Black-box optimization) are also included here.
+
+### UEDA
+
+This work, we compared and analyzed the differences between Bayesian optimization and evolutionary optimization in utilizing model uncertainty. We propose that within the evolutionary framework, the inclusion of unevaluated populations can overcome the utilization of model uncertainty and also mitigate misleading effects caused by model errors. We refer to this method as unevaluated population estimated distribution algorithm (UEDA). Experiments conducted on a series of test functions show that UEDA has advantages in utilizing model uncertainty. ([code](https://github.com/hhyqhh/Relation/blob/main/algorithm/saea/ueda.py), [paper](https://arxiv.org/pdf/2403.14413.pdf)) 
+
+>Hao, H., Zhang, X., & Zhou, A. (2024). Model Uncertainty in Evolutionary Optimization and Bayesian Optimization: A Comparative Analysis. arXiv preprint arXiv:2403.14413. (This manuscript has been accepted by CEC2024)
+
+
+![Image description](./img/UEDA.png)
 
 
 ---
