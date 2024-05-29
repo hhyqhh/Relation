@@ -1,5 +1,20 @@
 # Relation Model
 
+We are attempting to demonstrate the contribution of relation models to expensive optimization within a complete and unified framework, as shown in the figure below:
+
+![Image description](./img/RelationModel.png)
+
+
+
+The framework includes three modules: `data preparation`, `model training`, and `model usage`. Each module has multiple strategies that can be combined in various ways to form different algorithms, assisting evolutionary algorithms in solving expensive optimization problems.
+
+For related literature, please see:
+- [Expensive Optimization via Relation](https://doi.org/10.36227/techrxiv.171617329.90689848/v1). This repository includes the core code implementation of this work ([python](https://github.com/hhyqhh/Relation/tree/main/relation_model), [matlab](https://github.com/hhyqhh/Relation-matlab/tree/main/RelationModel)). More detailed experimental code will be updated following the acceptance of the paper.
+
+
+
+
+---
 Ths repository has collected some of our research work and code implementations on the **relation model**. The Matlab version implementation of the **relation model** can be found [here](https://github.com/hhyqhh/Relation-matlab/). 
 
 
